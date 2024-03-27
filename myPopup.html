@@ -1,0 +1,39 @@
+    <style>
+      div#popup {z-index: 9999 !important}
+      #popup {display: inline-block;opacity: 0;position: fixed;top: 20%;left: 50%;padding: 1em;transform: translateX(-50%);background: #fff;border: 1px solid #888;box-shadow: 1px 1px .5em 0 rgba(0, 0, 0, .5);
+        transition: opacity .3s ease-in-out}
+      #popup.hidden {display: none}#popup.fade-in {opacity: 1}
+      div#popup {width: 1200px;height: 600px;background-image: url("https://www.kaczestawy.pl/dummy/popup_ls.jpg");font-size: 0}
+      
+      button#selectCity {z-index: 9999 !important;position: absolute !important;right: 17%;top: 28%}
+      #lisan_popbx {width: 100vw;height: 100vh;background: #ff000000;z-index: 9999;position: absolute}
+      </style>
+    
+    <script>
+      /* ----- JavaScript ----- */
+      window.onload = function () {
+        /* Cache the popup. */
+        var popup = document.getElementById("popup");
+        var lisan_popbx = document.getElementById("lisan_popbx");
+        
+        /* Show the popup. */
+        popup.classList.remove("hidden");
+        
+        /* Fade the popup in */
+        setTimeout(()=>popup.classList.add("fade-in"));
+        
+        /* Close the popup when button is selected. */
+        document.getElementById("lisan_popbx").onclick = function () {
+           /* Fade the popup out */
+           popup.classList.remove("fade-in");
+           
+           /* Hide the popup. */
+           setTimeout(()=>{
+            popup.classList.add("hidden")
+            lisan_popbx.classList.add("hidden")
+          }, 300);
+        };
+      };
+      </script>
+
+    <div id="lisan_popbx"><div id="popup" class ="hidden">Google</div></div>
